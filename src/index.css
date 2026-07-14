@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Onest", ui-sans-serif, system-ui, sans-serif;
+
+  --color-brand-blue: #0c8ce9;
+  --color-brand-green: #4ac44f;
+  --color-ink: #050607;
+  --color-ink-soft: #0d1117;
+  --color-mist: #e8f1f8;
+  --color-mist-dim: #b8c7d4;
+
+  --shadow-glow-blue: 0 0 40px rgba(12, 140, 233, 0.35);
+  --shadow-glow-green: 0 0 40px rgba(74, 196, 79, 0.3);
+
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-pulse-soft: pulse-soft 3s ease-in-out infinite;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes pulse-soft {
+    0%,
+    100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ink text-mist font-sans antialiased;
+  overflow-x: hidden;
+}
+
+/* Pricing calculator range slider */
+.calc-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.12);
+  outline: none;
+  cursor: pointer;
+}
+.calc-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #4ac44f;
+  cursor: pointer;
+  box-shadow: 0 0 0 3px rgba(74,196,79,0.2);
+  transition: box-shadow 0.15s;
+}
+.calc-slider::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 0 5px rgba(74,196,79,0.25);
+}
+.calc-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #4ac44f;
+  border: none;
+  cursor: pointer;
+}
+
+::selection {
+  background: rgba(12, 140, 233, 0.4);
+  color: #fff;
+}
+
+/* The Figma page flow: black -> blue -> green -> dark footer */
+.page-gradient {
+  background: linear-gradient(
+    180deg,
+    #050607 0%,
+    #04121f 12%,
+    #0a5fa8 30%,
+    #0c8ce9 42%,
+    #2ba98a 55%,
+    #4ac44f 68%,
+    #1d5a26 82%,
+    #06110a 94%,
+    #050607 100%
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

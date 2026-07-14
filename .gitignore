@@ -1,0 +1,9 @@
+node_modules
+dist
+build
+.DS_Store
+*.log
+
+.idea
+# Yes, I vibe code as all other people - I'm a backend developer, not a frontend guy :(
+.claude

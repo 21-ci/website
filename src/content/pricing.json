@@ -1,0 +1,39 @@
+{
+  "baseCurrency": "USD",
+  "regions": [
+    { "id": "tashkent", "flag": "🇺🇿" },
+    { "id": "almaty",   "flag": "🇰🇿" },
+    { "id": "frankfurt","flag": "🇩🇪" }
+  ],
+  "resources": [
+    {
+      "id": "vcpu",
+      "unit": "per vCPU-second",
+      "priceUsd": { "tashkent": 0.0000175, "almaty": 0.0000205, "frankfurt": 0.000022 }
+    },
+    {
+      "id": "memory",
+      "unit": "per GB-second",
+      "priceUsd": { "tashkent": 0.0000021, "almaty": 0.0000025, "frankfurt": 0.0000028 }
+    },
+    {
+      "id": "requests",
+      "unit": "per 1M requests",
+      "priceUsd": { "tashkent": 0.18, "almaty": 0.20, "frankfurt": 0.22 }
+    },
+    {
+      "id": "egress",
+      "unit": "per GB egress",
+      "priceUsd": { "tashkent": 0.02, "almaty": 0.03, "frankfurt": 0.04 }
+    }
+  ],
+  "freeTier": {
+    "requests": 1000000,
+    "computeGbS": 400000
+  },
+  "tiers": [
+    { "id": "free",       "kind": "fixed", "amountUsd": 0 },
+    { "id": "payg",       "kind": "from",  "fromResource": "vcpu", "featured": true },
+    { "id": "enterprise", "kind": "custom" }
+  ]
+}
